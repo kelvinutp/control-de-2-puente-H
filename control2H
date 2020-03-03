@@ -1,0 +1,22 @@
+void setup() {
+  Serial.begin(9600);
+  for (int a = 23; a < 38; a = a + 2)
+  {
+    pinMode(a, OUTPUT);
+  }
+  pinMode(8, OUTPUT); //control PWM
+  pinMode(9, OUTPUT); //control PWM
+}
+
+void loop() {
+  //int b=map(analogRead(A0),0,1023,0,255);
+  //Serial.println(b);
+  //int b=255;
+  analogWrite(8,100);
+  analogWrite(9,100);
+  for (int a = 23; a < 38; a = a + 4) {
+    analogWrite(a, HIGH);
+    digitalWrite(a + 2, LOW);
+    delay(50);
+  }
+} 
